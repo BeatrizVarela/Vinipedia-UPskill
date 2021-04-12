@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% block header %}{% endblock %}
+    <title>{% block title %}Winecense{% endblock %}</title>
+</head>
+<body>
+<nav class="accounts-base">
+    <div class="menu">
+        <a class="logo base" href="{% url 'homepage' %}"><img src="/media/icons/Winecense_logo.png"/></a>
+        <a class="menu-page base" href="{% url 'wine:wine_list' %}">All Wines</a>
+    </div>
+    <div class="accounts-menu">
+        {% if request.user.is_authenticated %}
+            <a class="base" href="{% url 'accounts:profile' %}"><img src="/media/icons/user-icon.png"/></a>
+            <a class="base" href="{% url 'accounts:logout' %}"><img src="/media/icons/logout-icon.png"/></a>
+            <!-- ELSE -->
+        {% else %}
+            <a class="base" href="{% url 'accounts:login' %}">Log in</a>
+            <a class="base" href="{% url 'accounts:register' %}">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,12 +1,68 @@
-{% extends "base.html" %}
-{% load crispy_forms_tags %}
-{% block title %}Login page{% endblock %}
+{% extends "accounts/base.html" %}
+{% load static %}
+{% block header %}
+    <script src="https://use.fontawesome.com/23f7021f91.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{% static 'css/accounts.css' %}" rel="stylesheet">
+    {% block title %}Winecense{% endblock %}
+{% endblock %}
 
 {% block content %}
-  <h1>Login</h1>
-  <form method="post">
-    {{ form|crispy }}
-    {% csrf_token %}
-    <p><input type="submit" value="Log in"></p>
-  </form>
+    <section class="section-login">
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="inner-container">
+                        <div class="image" style="background-image: url(/media/other/login-image.jpg);">
+                        </div>
+                        <div class="text-container">
+                            <div class="header-container">
+                                <div class="header-element">
+                                    <h3 class="header-title">Log In</h3>
+                                </div>
+                                <div class="header-element">
+                                    <p class="social-media">
+                                        <a href="#"
+                                           class="social-icon"><span
+                                                class="fa fa-facebook"></span></a>
+                                        <a href="#"
+                                           class="social-icon"><span
+                                                class="fa fa-twitter"></span></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <form method="post" action="#" class="signin-form">
+                                {% csrf_token %}
+                                <div class="form-fields">
+                                    <label class="label" for="name">Username</label>
+                                    {{ form.username }}
+                                </div>
+                                <div class="form-fields">
+                                    <label class="label" for="password">Password</label>
+                                    {{ form.password }}
+                                </div>
+                                <div class="form-fields">
+                                    <button class="login-button" type="submit">Log in</button>
+                                </div>
+                                <div class="form-footer">
+                                    <div class="form-checkbox">
+                                        <label class="form-checkbox-label">Remember Me
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-recovery">
+                                        <a href="#">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="text-footer">Not a member? <a data-toggle="tab" href="{% url 'accounts:register' %}"> Sign Up</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
+
