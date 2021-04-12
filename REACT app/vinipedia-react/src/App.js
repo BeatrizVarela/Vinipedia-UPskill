@@ -1,23 +1,21 @@
 import { Route, Switch } from "react-router";
 import Nav from "./components/Nav";
-import axios from "axios";
-import {useEffect} from 'react';
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import loadActionAsync from './actions/load-action';
-import WineList from './components/WineList';
+import loadActionAsync from "./actions/load-action";
+import WineList from "./components/WineList";
 import SearchBar from "./components/SearchBar";
 import Homepage from "./pages/Homepage";
 
 function App() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
+  const wineData = useSelector((state) => state.load.wines);
+  console.log("winedata", wineData);
 
-  const wineData = useSelector(state => state.load.wines)
-  console.log("winedata",wineData)
-
-  useEffect(() =>{
+  useEffect(() => {
     dispatch(loadActionAsync());
-  },[dispatch])
+  }, [dispatch]);
 
   return (
     <div className="App">
