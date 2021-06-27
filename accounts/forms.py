@@ -60,8 +60,7 @@ class UserEditForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'email')
 
 
-# TODO: Testar
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('image', )
+        fields = ('phone_number', 'birthday', 'image')

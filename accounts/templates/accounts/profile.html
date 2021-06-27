@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-{% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated %}
 
-    <p>{{ request.user.username }}</p>
-    {#{% block favorites %}#}
-{#{% endblock %}#}
-{% endif %}
+        <p>{{ request.user.username }}</p>
+        <p>
+            <a href="{% url 'accounts:edit' %}">
+                <input type="submit" value="Edit Profile"/>
+            </a>
+        </p>
+        {#{% block favorites %}#}
+        {#{% endblock %}#}
+    {% endif %}
 {% endblock %}
