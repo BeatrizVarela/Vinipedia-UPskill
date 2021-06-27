@@ -63,4 +63,4 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('phone_number', 'birthday', 'image')
+        fields = ('image', 'phone_number', 'birthday',)
