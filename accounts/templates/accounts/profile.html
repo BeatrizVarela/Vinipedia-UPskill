@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if request.user.is_authenticated %}
+    {% if profile.user.is_authenticated %}
 
-        <p>{{ request.user.username }}</p>
+        <p>{{ profile.user.username }}</p>
         <p>
-            <a href="{% url 'accounts:edit' %}">
+            <a href="{% url 'accounts:edit' profile.id %}">
                 <input type="submit" value="Edit Profile"/>
             </a>
         </p>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1 class="title">All Profiles Listed (for admin only!)</h1>
+
+
+    {% for profile in profiles %}
+        <div class="list-container">
+            <p>{{ profile }}</p>
+            <a href="{% url 'accounts:visit_profile' profile.id %}">Show</a>
+            <a href="{% url 'accounts:delete_profile' profile.id %}">Delete</a>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

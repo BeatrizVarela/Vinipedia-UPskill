@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Quizz{% endblock %}
+
+{% block content %}
+  <h1>Quizz {{ quizz.name }}</h1>
+    {% for question in quizz.get_questions %}
+        <div class="list-container">
+            <p>{{ question }}</p>
+        </div>
+    {% endfor %}
+    <button type="button" class="btn btn-success">Finish!</button>
+{% endblock %}

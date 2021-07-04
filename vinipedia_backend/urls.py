@@ -49,6 +49,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('wines/', include('wine.urls')),
     path('accounts/', include('accounts.urls')),
+    path('quizz/', include('quizz.urls')),
     path('producer/', include('producer.urls')),
     path('api/', include(apipatterns)),
 ]
